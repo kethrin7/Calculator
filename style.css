@@ -33,13 +33,13 @@
     width: 60px;
 }
 
-form .display{
+form .result{
     display: flex;
     justify-content: flex-end;
     margin: 20px 0;
 }
 
-form .display input{
+form .result input{
     box-shadow: none;
     flex: 1;
     font-size: 45px;
