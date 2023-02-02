@@ -21,7 +21,7 @@
 }
 
 .calculator button{
-    border: 0;
+    border: none;
     border-radius:10px;
     box-shadow: -5px -5px 10px rgba(250,250,250,0.2), 5px 5px 10px rgba(0,0,0,0.2);
     background:transparent;
@@ -29,7 +29,7 @@
     cursor: pointer;
     font-size:20px;
     height: 60px;
-    outline: 0;
+    outline: none;
     margin:10px;
     width: 60px;
 }
