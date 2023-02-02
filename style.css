@@ -17,6 +17,7 @@
     border-radius: 20px;
     background-color: #2f3e53;
     padding: 20px;
+    
 }
 
 .calculator button{
@@ -36,7 +37,6 @@
 .screen {
     background:transparent;
     border:none;
-    border: 0;
     color:#fff;
     display: flex;
     font-size: 45px;
