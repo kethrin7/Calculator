@@ -3,55 +3,40 @@ const buttons = document.querySelectorAll("button");
 
 let operator = "";
 let num1 = "";
-let num2 = "";
-let result = "";
 
-buttons.forEach((button) => {
+const handleClick = (button) => {
   switch (button.id) {
     case "clear-all":
-      button.addEventListener("click", () => (screen.value = ""));
+      screen.value = "";
       break;
     case "clear":
-      button.addEventListener(
-        "click", () => (screen.value = screen.value.slice(0, -1))
-      );
+      screen.value = screen.value.slice(0, -1);
       break;
     case "divide":
     case "multiply":
     case "minus":
     case "plus":
-      button.addEventListener("click", () => {
-        operator = button.textContent;
-        num1 = parseFloat(screen.value);
-        screen.value = "";
-      });
+      operator = button.textContent;
+      num1 = +screen.value;
+      screen.value = "";
       break;
     case "equal":
-      button.addEventListener("click", () => {
-        num2 = parseFloat(screen.value);
-        switch (operator) {
-          case "+":
-            result = num1 + num2;
-            break;
-          case "-":
-            result = num1 - num2;
-            break;
-          case "*":
-            result = num1 * num2;
-            break;
-          case "/":
-            result = num1 / num2;
-            break;
-          default:
-            num1 += num2;
-            break;
-        }
-        screen.value = result;
-      });
+      const num2 = +screen.value;
+      const result =
+        operator === "+"
+          ? num1 + num2
+          : operator === "-"
+          ? num1 - num2
+          : operator === "*"
+          ? num1 * num2
+          : num1 / num2;
+      screen.value = result;
       break;
-
     default:
-      button.addEventListener(
-        "click", () => (screen.value += button.textContent));
-    }
-});
+      screen.value += button.textContent;
+  }
+};
+
+buttons.forEach((button) =>
+  button.addEventListener("click", () => handleClick(button))
+);
